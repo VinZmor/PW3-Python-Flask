@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+
+<html lang="pt-br">
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Página Games </title>
+
+</head>
+
+
+<body>
+
+    <h1>Bem-vindo a página de jogos!</h1>
+
+
+    <hr>
+
+    {# Esse é um comentário do jinja2. Injeta código python no html#}
+
+    <p>Game mais jogado no momento:</p>
+
+    <!-- Comenta rapido Ctrl + ; -->
+
+    <!-- <ul>
+
+        <li>Título: {# {titulo} #}</li>
+
+
+        <li>Ano: {# {ano} #}</li>
+
+
+        <li>Categoria: {# {categoria} #}</li>
+
+
+    </ul> -->
+
+    <!-- Percorrendo o dicionario -->
+    {% for chave, valor in game.items() %}
+    <details>
+        <summary>{{chave}}</summary>
+        {{valor}}
+    </details>
+    {%endfor%}
+
+    <!-- Assim pega o valor individualmente das variaveis do objeto -->
+    <p>O jogo {{game['titulo']}} tem {{ 2025 - game['ano']}} anos</p>
+
+    <hr>
+
+    <p>Jogadores do momento no {# {titulo} #}:</p>
+
+
+    <ol>
+        {# Assim que funciona for em Python #}
+
+        {# Chave e porcentagem coloca código python; Duas chaves são para variaveis #}
+
+        {% for jogador in jogadores %}
+
+        <li>{{jogador}}</li>
+
+        {% endfor %}
+
+    </ol>
+
+    <hr>
+
+    <p> Outros jogos da Steam Verde:</p>
+
+    <ul>
+
+        {% for jogo in jogos %}
+
+        <li>{{jogo}}</li>
+
+        {% endfor %}
+
+    </ul>
+
+
+</body>
+
+
+</html>

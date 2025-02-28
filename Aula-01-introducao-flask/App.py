@@ -17,19 +17,20 @@ def home():
 
 
 def game():
-    titulo = 'CS:GO'
-    ano = 2012
-    categoria = 'FPS Online'
     # Array funciona assim:
     jogadores = ['Vinícius', 'Zezília', 'Moreira', 'Pereira']
+    # Dicionario = Objeto, é por chave, colocando as CHAVE do lado direto, eles são os atributos; e o esquerdo VALOR. Colocando dois pontos ao inves de =
+    game= {"titulo" : 'CS:GO',
+           "ano" : 2012,
+           "categoria" : 'FPS Online',}
+
     jogos = ['The Sim 4', 'Lethal Comphany', 'Stardey Valley', 'FIFA 17', 'Pokemon Fire Red', 'GTA 5']
     
     return render_template('games.html', 
-                           titulo=titulo,
-                           ano=ano,
-                           categoria=categoria,
+                           game=game,
                            jogadores=jogadores,
-                           jogos=jogos)
+                           jogos=jogos
+                           )
 
 
 
