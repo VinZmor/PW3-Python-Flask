@@ -1,1 +1,2 @@
-# PW3-Python-Flask
+# pw3-python-flask
+Material das aulas de Programação Web 3 da ETEC Registro

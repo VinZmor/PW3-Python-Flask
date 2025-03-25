@@ -1,40 +1,36 @@
-# Importando o Flask e o render_templante (que lê o html)
+# Comentário em Python
+# Importando o pacote do Flask
 from flask import Flask, render_template
 
-# Carregando o Flask na variável app. template_folder localiza a página
+# Carregando o Flask na variável app
 app = Flask(__name__, template_folder='views')
 
-# Criando a primeira rota do site. 
-    # Rota com uma '/' é a rota principal
-@app.route('/')
+# Criando a rota principal do site
 
-# Criando função Python
+
+@app.route('/')
+# Criando função no Python
+# View function - Função de visualização
 def home():
     return render_template('index.html')
 
-# Assim cria outras rotas. Deve adicionar o /nome no link da página
+
 @app.route('/games')
+# View function - Função de visualização
+def games():
+    # Dicionário no Python (objeto)
+    game = {'Título': 'CS-GO',
+            'Ano': 2012,
+            'Categoria': 'FPS Online'}
 
+    jogadores = ['iruah', 'davi_lambari', 'edsongf',
+                 'kioto', 'black.butterfly', 'jujudopix']
 
-def game():
-    # Array funciona assim:
-    jogadores = ['Vinícius', 'Zezília', 'Moreira', 'Pereira']
-    # Dicionario = Objeto, é por chave, colocando as CHAVE do lado direto, eles são os atributos; e o esquerdo VALOR. Colocando dois pontos ao inves de =
-    game= {"titulo" : 'CS:GO',
-           "ano" : 2012,
-           "categoria" : 'FPS Online',}
-
-    jogos = ['The Sim 4', 'Lethal Comphany', 'Stardey Valley', 'FIFA 17', 'Pokemon Fire Red', 'GTA 5']
-    
-    return render_template('games.html', 
+    return render_template('games.html',
                            game=game,
-                           jogadores=jogadores,
-                           jogos=jogos
-                           )
+                           jogadores=jogadores)
 
 
-
-if __name__ == '__main__': #Rodar caso for o principal. Quando o código está na frente do If, ele considera, caso contrario ele não considera
-
-    # Inicia o servidor, porta 5000, como modo de depuração ativado
-    app.run (host='localhost', port=5000, debug=True)
+if __name__ == '__main__':
+    # Rodando o servidor no localhost, porta 5000
+    app.run(host='0.0.0.0', port=5000, debug=True)
